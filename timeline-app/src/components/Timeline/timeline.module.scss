@@ -260,3 +260,51 @@
     }
   }
 }
+
+.slider {
+  padding: 0 5px;
+
+  :global(.swiper) {
+    padding: 0 70px;
+  }
+
+  .slider__slide {
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+
+    .event__year {
+      color: #3877EE;
+      font-size: 25px;
+    }
+
+    .event__description {
+      color: #42567A;
+      font-size: 20px;
+      line-height: 1.5;
+    }
+  }
+
+  :global(.swiper-button-prev), :global(.swiper-button-next) {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+    transition: transform .3s, box-shadow .3s;
+    box-shadow: 0 0 15px 0 rgba(56, 119, 238, 0.1);
+
+    svg {
+      height: 10px;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  :global(.swiper-button-disabled) {
+    display: none;
+  }
+}
