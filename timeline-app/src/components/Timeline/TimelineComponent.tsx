@@ -3,6 +3,7 @@ import TimelineCircle from "./TimelineCircle";
 import TimelinePeriod from "./TimelinePeriod";
 import { timelinePoints } from '../../mocks/timelinePoints';
 import { useTimelineRotation } from '../../hooks/useTimelineRotation';
+import TimelineControls from "./TimelineControls";
 
 const TimelineComponent = () => {
     const { activePoint, rotation, handleDotClick } = useTimelineRotation();
@@ -20,6 +21,12 @@ const TimelineComponent = () => {
                     from={Number(timelinePoints[activePoint].period.from)}
                     to={Number(timelinePoints[activePoint].period.to)}
                 />
+                <div className={cls.bottom__nav}>
+                    <TimelineControls
+                        onClick={handleDotClick}
+                        activePoint={activePoint}
+                    />
+                </div>
             </div>
         </section>
     )
