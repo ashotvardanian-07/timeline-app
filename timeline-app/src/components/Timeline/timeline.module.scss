@@ -88,3 +88,104 @@
   background: transparent;
   border: 1px solid #42567A33;
 }
+
+.each__dot {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  cursor: pointer;
+  position: absolute;
+  border-radius: 50%;
+  align-items: center;
+  top: calc(50% - 28px);
+  left: calc(50% - 28px);
+  justify-content: center;
+  flex-direction: column;
+
+  &:hover .dot__wrapper {
+    width: 56px;
+    height: 56px;
+    top: calc(50% - 28px);
+    left: calc(50% - 28px);
+    background-color: #F4F5F9;
+    border: 1px solid #303E58;
+
+    .dot__content {
+      display: flex;
+
+      .dot_title {
+        display: none;
+      }
+    }
+  }
+
+  .dot__wrapper {
+    width: 6px;
+    height: 6px;
+    display: flex;
+    cursor: pointer;
+    position: absolute;
+    border-radius: 50%;
+    align-items: center;
+    top: calc(50% - 3px);
+    left: calc(50% - 3px);
+    justify-content: center;
+    flex-direction: column;
+    background-color: #42567A;
+    transition:
+            top .3s ease,
+            left .3s ease,
+            width .3s ease,
+            height .3s ease,
+            border-radius .3s ease,
+            background-color .3s ease;
+
+    .dot__content {
+      width: 56px;
+      height: 56px;
+      display: none;
+      position: relative;
+      transition: opacity .3s ease;
+
+      .dot_number {
+        top: 50%;
+        left: 50%;
+        font-size: 20px;
+        position: absolute;
+        transform: translate(-50%, -50%);
+      }
+
+      .dot_title {
+        top: 50%;
+        color: #42567A;
+        font-size: 20px;
+        font-weight: bold;
+        position: absolute;
+        left: calc(100% + 20px);
+        transform: translateY(-50%);
+      }
+    }
+
+    &.active {
+      width: 56px;
+      height: 56px;
+      top: calc(50% - 28px);
+      left: calc(50% - 28px);
+      background-color: #F4F5F9;
+      border: 1px solid #303E58;
+
+      &::before {
+        width: 0;
+        height: 0;
+      }
+
+      .dot__content {
+        display: flex;
+
+        .dot_title {
+          display: flex;
+        }
+      }
+    }
+  }
+}
