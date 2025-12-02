@@ -1,5 +1,7 @@
 import cls from './timeline.module.scss';
 import TimelineCircle from "./TimelineCircle";
+import TimelinePeriod from "./TimelinePeriod";
+import { timelinePoints } from '../../mocks/timelinePoints';
 import { useTimelineRotation } from '../../hooks/useTimelineRotation';
 
 const TimelineComponent = () => {
@@ -13,6 +15,10 @@ const TimelineComponent = () => {
                     rotation={rotation}
                     activePoint={activePoint}
                     handleDotClick={handleDotClick}
+                />
+                <TimelinePeriod
+                    from={Number(timelinePoints[activePoint].period.from)}
+                    to={Number(timelinePoints[activePoint].period.to)}
                 />
             </div>
         </section>

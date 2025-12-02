@@ -189,3 +189,28 @@
     }
   }
 }
+
+.timeline__period {
+  top: 45%;
+  left: 50%;
+  gap: 130px;
+  z-index: 2;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+
+  div {
+    font-size: 200px;
+    font-weight: bold;
+  }
+
+  .from {
+    color: #5d5fef;
+  }
+
+  .to {
+    color: #ef5da8;
+  }
+}
