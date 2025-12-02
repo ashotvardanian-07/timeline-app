@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 import cls from './timeline.module.scss';
 import { timelinePoints } from '../../mocks/timelinePoints';
+import TimelineDot from "./TimelineDot";
 
 interface ITimelineCircle {
     rotation: number;
@@ -28,25 +29,19 @@ const TimelineCircle: FC<ITimelineCircle> = (
                     const angle = anglePerDot * i;
 
                     return (
-                        <div
-                            className={cls.each__dot}
-                            style={{transform: `rotate(${angle}deg) translate(${radius}px) rotate(${-angle - rotation}deg)`}}
+                        <TimelineDot
+                            key={i}
+                            pointId={point.id}
+                            pointTitle={point.title}
+                            isActive={activePoint === i}
                             onClick={() => handleDotClick(i)}
-                        >
-                            <div
-                                className={`${cls.dot__wrapper} ${activePoint === i ? cls.active : ''}`}
-                            >
-                                <div className={cls.dot__content}>
-                                    <span className={cls.dot_number}>{point.id}</span>
-                                    <div className={cls.dot_title}>{point.title}</div>
-                                </div>
-                            </div>
-                        </div>
+                            styles={{transform: `rotate(${angle}deg) translate(${radius}px) rotate(${-angle - rotation}deg)`}}
+                        />
                     )
                 })}
             </div>
         </div>
     )
-}
+};
 
 export default TimelineCircle;
