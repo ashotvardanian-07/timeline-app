@@ -16,7 +16,9 @@
 
     "allowJs": true,
     "isolatedModules": true,
-    "noEmit": true
+    "noEmit": true,
+
+    "types": ["swiper"]
   },
   "include": ["src"]
 }
