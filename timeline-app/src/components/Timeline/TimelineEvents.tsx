@@ -3,8 +3,10 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import type { FC } from "react";
 import cls from "./timeline.module.scss";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import ArrowLeft from '../../svg/arrow-left.svg';
+import ArrowRight from '../../svg/arrow-right.svg';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
 import { timelinePoints } from '../../mocks/timelinePoints';
 
 const TimelineEvents: FC<{ activePoint: number; }> = ({ activePoint }) => {
@@ -16,6 +18,12 @@ const TimelineEvents: FC<{ activePoint: number; }> = ({ activePoint }) => {
                 slidesPerView={1.5}
                 pagination={{clickable: true}}
                 navigation={{enabled: false}}
+                onBeforeInit={(swiper) => {
+                    // @ts-ignore
+                    swiper.params.navigation.prevEl = '.custom-prev';
+                    // @ts-ignore
+                    swiper.params.navigation.nextEl = '.custom-next';
+                }}
                 initialSlide={0}
                 breakpoints={{
                     992: {
@@ -35,6 +43,12 @@ const TimelineEvents: FC<{ activePoint: number; }> = ({ activePoint }) => {
                     </SwiperSlide>
                 ))}
             </Swiper>
+            <div className={`custom-prev ${cls.slider__prev}`}>
+                <ArrowLeft/>
+            </div>
+            <div className={`custom-next ${cls.slider__next}`}>
+                <ArrowRight/>
+            </div>
         </div>
     )
 }
