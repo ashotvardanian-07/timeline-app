@@ -1,8 +1,8 @@
-import type { FC } from "react";
+import type { FC } from 'react';
 import cls from './timeline.module.scss';
-import { timelinePoints } from '../../mocks/timelinePoints';
 import ArrowLeft from '../../svg/arrow-left.svg';
 import ArrowRight from '../../svg/arrow-right.svg';
+import { timelinePoints } from '../../mocks/timelinePoints';
 
 
 interface TimelineControlsProps {

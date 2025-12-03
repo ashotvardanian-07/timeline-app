@@ -1,8 +1,8 @@
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import type { FC } from "react";
-import cls from "./timeline.module.scss";
+import type { FC } from 'react';
+import cls from './timeline.module.scss';
 import ArrowLeft from '../../svg/arrow-left.svg';
 import ArrowRight from '../../svg/arrow-right.svg';
 import { Swiper, SwiperSlide } from 'swiper/react';

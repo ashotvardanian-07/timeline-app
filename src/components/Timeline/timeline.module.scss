@@ -328,6 +328,8 @@
     right: 40px;
   }
 
+  :global(.swiper-button-prev),
+  :global(.swiper-button-next),
   :global(.swiper-button-disabled) {
     display: none;
   }
@@ -385,9 +387,9 @@
 
     .timeline__controls {
       gap: 10px;
-      margin: 0;
       bottom: 0;
       z-index: 2;
+      margin: 0 0 0 2px;
       position: absolute;
     }
 

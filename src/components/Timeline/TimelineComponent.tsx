@@ -1,10 +1,10 @@
 import cls from './timeline.module.scss';
-import TimelineCircle from "./TimelineCircle";
-import TimelinePeriod from "./TimelinePeriod";
+import TimelineCircle from './TimelineCircle';
+import TimelinePeriod from './TimelinePeriod';
+import TimelineEvents from './TimelineEvents';
+import TimelineControls from './TimelineControls';
 import { timelinePoints } from '../../mocks/timelinePoints';
 import { useTimelineRotation } from '../../hooks/useTimelineRotation';
-import TimelineControls from "./TimelineControls";
-import TimelineEvents from "./TimelineEvents";
 
 const TimelineComponent = () => {
     const { activePoint, rotation, handleDotClick } = useTimelineRotation();

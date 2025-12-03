@@ -1,15 +1,15 @@
 import type { FC } from 'react';
+import TimelineDot from './TimelineDot';
 import cls from './timeline.module.scss';
 import { timelinePoints } from '../../mocks/timelinePoints';
-import TimelineDot from "./TimelineDot";
 
-interface ITimelineCircle {
+interface TimelineCircleProps {
     rotation: number;
     activePoint: number;
     handleDotClick: (index: number) => void;
 }
 
-const TimelineCircle: FC<ITimelineCircle> = (
+const TimelineCircle: FC<TimelineCircleProps> = (
     {
         rotation,
         activePoint,
