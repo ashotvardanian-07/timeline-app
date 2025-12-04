@@ -8,27 +8,27 @@ interface TimelinePeriodProps {
 }
 
 const TimelinePeriod: FC<TimelinePeriodProps> = ({ from, to }) => {
-    const [currentFrom, setCurrentFrom] = useState(from);
-    const [currentTo, setCurrentTo] = useState(to);
+    const [currentFrom, setCurrentFrom] = useState(0);
+    const [currentTo, setCurrentTo] = useState(0);
 
     useEffect(() => {
         const duration = 1000;
-        const startTime = performance.now();
+        const initialTo = currentTo;
+        const initialFrom = currentFrom;
+        const start = performance.now();
 
         const animate = (time: number) => {
-            const elapsed = time - startTime;
-            const progress = Math.min(elapsed / duration, 1);
+            const progress = Math.min((time - start) / duration, 1);
 
-            setCurrentFrom(Math.round(from + (to - from) * progress));
-            setCurrentTo(Math.round(to * progress + from * (1 - progress)));
+            setCurrentFrom(Math.round(initialFrom + (from - initialFrom) * progress));
+            setCurrentTo(Math.round(initialTo + (to - initialTo) * progress));
 
-            if (progress < 1) {
-                requestAnimationFrame(animate);
-            }
+            if (progress < 1) requestAnimationFrame(animate);
         };
 
         requestAnimationFrame(animate);
     }, [from, to]);
+
 
     return (
         <div className={cls.timeline__period}>
